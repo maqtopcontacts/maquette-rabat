@@ -1,406 +1,145 @@
-```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>Fabrication de maquette au Maroc | Maquette Rabat Casablanca Tanger</title>
-
-<meta name="description" content="Entreprise spécialisée dans la fabrication de maquettes architecturales au Maroc : Rabat, Casablanca, Tanger, Fès, Agadir, Marrakech et Al Hoceima.">
+<title>Maquettes 3D au Maroc | MAQ MAROC</title>
+<meta name="description" content="Fabrication de maquettes architecturales, industrielles et paysagères au Maroc. Références et projets professionnels.">
 
 <style>
-
-body{
-margin:0;
-font-family:Arial;
-background:#f5f5f5;
-color:#222;
-}
-
-/* HEADER */
-
-header{
-background:white;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 8%;
-box-shadow:0 3px 10px rgba(0,0,0,0.1);
-position:sticky;
-top:0;
-z-index:100;
-}
-
-.logo{
-font-size:24px;
-font-weight:bold;
-}
-
-/* HERO SLIDER */
-
-.hero{
-position:relative;
-height:500px;
-overflow:hidden;
-}
-
-.hero img{
-width:100%;
-height:500px;
-object-fit:cover;
-position:absolute;
-opacity:0;
-transition:opacity 1.5s;
-}
-
-.hero img.active{
-opacity:1;
-}
-
-.hero-text{
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-color:white;
-font-size:40px;
-text-align:center;
-background:rgba(0,0,0,0.4);
-padding:20px 40px;
-border-radius:10px;
-}
-
-/* DESCRIPTION */
-
-.description{
-padding:60px 10%;
-text-align:center;
-line-height:1.8;
-font-size:18px;
-}
-
-/* PROJECTS */
-
-.projects{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:30px;
-padding:60px 10%;
-}
-
-.project{
-background:white;
-border-radius:10px;
-overflow:hidden;
-box-shadow:0 10px 25px rgba(0,0,0,0.1);
-cursor:pointer;
-transition:0.3s;
-}
-
-.project:hover{
-transform:translateY(-10px);
-}
-
-.project img{
-width:100%;
-height:200px;
-object-fit:cover;
-}
-
-.project-title{
-padding:15px;
-text-align:center;
-font-weight:bold;
-}
-
-/* VIEWER */
-
-.viewer{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.9);
-justify-content:center;
-align-items:center;
-}
-
-.viewer img{
-max-width:90%;
-max-height:80%;
-}
-
-.close{
-position:absolute;
-top:20px;
-right:30px;
-font-size:35px;
-color:white;
-cursor:pointer;
-}
-
-.nav{
-position:absolute;
-top:50%;
-font-size:50px;
-color:white;
-cursor:pointer;
-}
-
+body{margin:0;font-family:Arial,sans-serif;background:#f5f5f5;color:#222;}
+header{background:white;padding:20px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,0.1);}
+.logo{font-size:28px;font-weight:bold;color:#0a6cff;}
+.hero{position:relative;overflow:hidden;height:400px;}
+.hero img{width:100%;height:400px;object-fit:cover;position:absolute;opacity:0;transition:opacity 1.5s;}
+.hero img.active{opacity:1;}
+.hero-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:white;font-size:32px;background:rgba(0,0,0,0.4);padding:15px 30px;border-radius:10px;}
+.description{padding:50px 10%;text-align:center;line-height:1.6;font-size:18px;}
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;padding:40px 10%;}
+.project{background:white;border-radius:8px;overflow:hidden;cursor:pointer;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:0.3s;}
+.project:hover{transform:translateY(-5px);}
+.project img{width:100%;height:180px;object-fit:cover;}
+.project-title{text-align:center;padding:10px;font-weight:bold;}
+.viewer{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);justify-content:center;align-items:center;z-index:1000;}
+.viewer img{max-width:90%;max-height:80%;}
+.close{position:absolute;top:20px;right:30px;font-size:35px;color:white;cursor:pointer;}
+.nav{position:absolute;top:50%;font-size:50px;color:white;cursor:pointer;user-select:none;}
 .prev{left:30px;}
 .next{right:30px;}
-
-/* CONTACT */
-
-.contact{
-background:#111;
-color:white;
-text-align:center;
-padding:60px 10%;
-}
-
-/* BUTTONS */
-
-.whatsapp{
-position:fixed;
-right:20px;
-bottom:20px;
-background:#25D366;
-color:white;
-padding:15px 20px;
-border-radius:50px;
-text-decoration:none;
-font-weight:bold;
-}
-
-.devis{
-position:fixed;
-right:20px;
-bottom:80px;
-background:#0077ff;
-color:white;
-padding:15px 20px;
-border-radius:50px;
-text-decoration:none;
-font-weight:bold;
-}
-
+.references{padding:40px 10%;display:grid;grid-template-columns:repeat(4,1fr);gap:15px;}
+.references img{width:100%;height:150px;object-fit:cover;border-radius:8px;}
+.videos{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;padding:40px 10%;}
+video{width:100%;border-radius:8px;}
+.contact{background:#111;color:white;text-align:center;padding:40px;}
+.btn{display:inline-block;margin:10px;padding:12px 25px;border-radius:50px;color:white;text-decoration:none;font-weight:bold;}
+.whatsapp{background:#25D366;}
+.devis{background:#0077ff;}
+.localisation{background:#ff4444;}
 </style>
-
 </head>
-
 <body>
 
 <header>
-
-<div class="logo">MAQUETTE MAROC</div>
-
+<div class="logo">MAQ MAROC</div>
 </header>
 
 <!-- HERO SLIDER -->
-
 <section class="hero">
-
 <img class="active" src="https://raw.githubusercontent.com/maqtopcontacts/maquette-rabat/main/slide/1.jpg">
 <img src="https://raw.githubusercontent.com/maqtopcontacts/maquette-rabat/main/slide/2.jpg">
 <img src="https://raw.githubusercontent.com/maqtopcontacts/maquette-rabat/main/slide/3.jpg">
 <img src="https://raw.githubusercontent.com/maqtopcontacts/maquette-rabat/main/slide/4.jpg">
-
-<div class="hero-text">
-Fabrication de maquettes professionnelles au Maroc
-</div>
-
+<div class="hero-text">Fabrication de maquettes professionnelles au Maroc</div>
 </section>
 
 <!-- DESCRIPTION -->
-
 <section class="description">
-
-Notre entreprise est spécialisée dans la <strong>fabrication de maquette</strong> et la 
-<strong>réalisation de maquettes architecturales au Maroc</strong>.
-
-Nous réalisons des projets pour :
-
-<strong>
-maquette Rabat • maquette Casablanca • maquette Tanger • maquette Fès • maquette Agadir • maquette Marrakech • maquette Al Hoceima
-</strong>
-
+Nous sommes spécialisés dans la <strong>réalisation et fabrication de maquettes</strong> pour les projets architecturaux, industriels et paysagers au Maroc :  
+<strong>Rabat • Casablanca • Tanger • Fès • Agadir • Marrakech • Al Hoceima</strong>
 </section>
 
 <!-- PROJECTS -->
-
 <h2 style="text-align:center">Nos Projets</h2>
-
 <div class="projects">
-
-<div class="project" onclick="openProject(0)">
-<img src="https://raw.githubusercontent.com/maqtopcontacts/maquette-rabat/main/projets/P1/1.jpg">
-<div class="project-title">Projet Architecture</div>
-</div>
-
-<div class="project" onclick="openProject(1)">
-<img src="https://raw.githubusercontent.com/maqtopcontacts/maquette-rabat/main/projets/P2/1.jpg">
-<div class="project-title">Projet Industriel</div>
-</div>
-
-<div class="project" onclick="openProject(2)">
-<img src="https://raw.githubusercontent.com/maqtopcontacts/maquette-rabat/main/projets/P3/1.jpg">
-<div class="project-title">Projet Lotissement</div>
-</div>
-
-<div class="project" onclick="openProject(3)">
-<img src="https://raw.githubusercontent.com/maqtopcontacts/maquette-rabat/main/projets/P4/1.jpg">
-<div class="project-title">Projet Ouvrage d'Art</div>
-</div>
-
-<div class="project" onclick="openProject(4)">
-<img src="https://raw.githubusercontent.com/maqtopcontacts/maquette-rabat/main/projets/P5/1.jpg">
-<div class="project-title">Projet Promoteur Immobilier</div>
-</div>
-
-<div class="project" onclick="openProject(5)">
-<img src="https://raw.githubusercontent.com/maqtopcontacts/maquette-rabat/main/projets/P6/1.jpg">
-<div class="project-title">Projet Résidence d'Habitation</div>
-</div>
-
-<div class="project" onclick="openProject(6)">
-<img src="https://raw.githubusercontent.com/maqtopcontacts/maquette-rabat/main/projets/P7/1.jpg">
-<div class="project-title">Projet Concours Architecture</div>
-</div>
-
-<div class="project" onclick="openProject(7)">
-<img src="https://raw.githubusercontent.com/maqtopcontacts/maquette-rabat/main/projets/P8/1.jpg">
-<div class="project-title">Projet Vallée</div>
-</div>
-
-<div class="project" onclick="openProject(8)">
-<img src="https://raw.githubusercontent.com/maqtopcontacts/maquette-rabat/main/projets/P9/1.jpg">
-<div class="project-title">Projet Forêt</div>
-</div>
-
-<div class="project" onclick="openProject(9)">
-<img src="https://raw.githubusercontent.com/maqtopcontacts/maquette-rabat/main/projets/P10/1.jpg">
-<div class="project-title">Projet Parc Touristique</div>
-</div>
-
+<script>
+const projectNames = [
+"Projet Architecture","Projet Industriel","Projet Lotissement","Projet Ouvrage d'Art",
+"Projet Promoteur Immobilier","Projet Résidence d'Habitation","Projet Concours Architecture",
+"Projet Vallée","Projet Forêt","Projet Parc Touristique"
+];
+for(let i=1;i<=10;i++){
+  document.write(`<div class="project" onclick="openProject(${i-1})">
+      <img src="https://raw.githubusercontent.com/maqtopcontacts/maquette-rabat/main/projets/P${i}/1.jpg">
+      <div class="project-title">${projectNames[i-1]}</div>
+    </div>`);
+}
+</script>
 </div>
 
 <!-- VIEWER -->
-
 <div class="viewer" id="viewer">
-
 <span class="close" onclick="closeViewer()">✕</span>
-
 <span class="nav prev" onclick="prevImage()">❮</span>
-
 <img id="viewerImg">
-
 <span class="nav next" onclick="nextImage()">❯</span>
+</div>
 
+<!-- REFERENCES -->
+<h2 style="text-align:center">Nos Références</h2>
+<div class="references">
+<script>
+for(let i=1;i<=8;i++){
+  document.write(`<img src="https://raw.githubusercontent.com/maqtopcontacts/maquette-rabat/main/reference/${i}.jpg">`);
+}
+</script>
+</div>
+
+<!-- VIDEOS -->
+<h2 style="text-align:center">Vidéos</h2>
+<div class="videos">
+<video src="video/v1.mp4" muted loop controls></video>
+<video src="video/v2.mp4" muted loop controls></video>
+<video src="video/v3.mp4" muted loop controls></video>
 </div>
 
 <!-- CONTACT -->
-
 <section class="contact">
-
 <h2>Contact</h2>
-
 Najlae El Malouki<br>
 Adresse : El Manzah Ain Aouda N0411<br>
 Téléphone : 0770390867<br>
-Email : najlaemalouki@gmail.com
-
+Email : najlaemalouki@gmail.com<br>
+<a href="https://wa.me/212770390867" class="btn whatsapp">💬 WhatsApp</a>
+<a onclick="alert('Demande de devis envoyée')" class="btn devis">📄 Demander devis</a>
+<a href="https://maps.app.goo.gl/4AY2eTBKicETz9BF6" target="_blank" class="btn localisation">📍 Localisation</a>
 </section>
 
-<!-- BUTTONS -->
-
-<a class="whatsapp" href="https://wa.me/212770390867">WhatsApp</a>
-
-<a class="devis" href="mailto:najlaemalouki@gmail.com?subject=Demande%20de%20devis%20maquette">Demande devis</a>
-
 <script>
-
-/* HERO SLIDE */
-
+// HERO SLIDE
 let slides=document.querySelectorAll(".hero img");
 let index=0;
-
 setInterval(()=>{
-
 slides[index].classList.remove("active");
-
 index=(index+1)%slides.length;
-
 slides[index].classList.add("active");
-
 },4000);
 
-/* PROJECT VIEWER */
-
-var projects=[
-
-["https://raw.githubusercontent.com/maqtopcontacts/maquette-rabat/main/projets/P1/1.jpg"],
-["https://raw.githubusercontent.com/maqtopcontacts/maquette-rabat/main/projets/P2/1.jpg"],
-["https://raw.githubusercontent.com/maqtopcontacts/maquette-rabat/main/projets/P3/1.jpg"],
-["https://raw.githubusercontent.com/maqtopcontacts/maquette-rabat/main/projets/P4/1.jpg"],
-["https://raw.githubusercontent.com/maqtopcontacts/maquette-rabat/main/projets/P5/1.jpg"],
-["https://raw.githubusercontent.com/maqtopcontacts/maquette-rabat/main/projets/P6/1.jpg"],
-["https://raw.githubusercontent.com/maqtopcontacts/maquette-rabat/main/projets/P7/1.jpg"],
-["https://raw.githubusercontent.com/maqtopcontacts/maquette-rabat/main/projets/P8/1.jpg"],
-["https://raw.githubusercontent.com/maqtopcontacts/maquette-rabat/main/projets/P9/1.jpg"],
-["https://raw.githubusercontent.com/maqtopcontacts/maquette-rabat/main/projets/P10/1.jpg"]
-
-];
-
+// PROJECT VIEWER
+let projects=[];
+for(let i=1;i<=10;i++){
+  let arr=[];
+  for(let j=1;j<=10;j++){
+    arr.push(`https://raw.githubusercontent.com/maqtopcontacts/maquette-rabat/main/projets/P${i}/${j}.jpg`);
+  }
+  projects.push(arr);
+}
 let currentProject=0;
 let currentImage=0;
-
-function openProject(i){
-
-currentProject=i;
-currentImage=0;
-
-document.getElementById("viewer").style.display="flex";
-document.getElementById("viewerImg").src=projects[i][0];
-
-}
-
-function nextImage(){
-
-currentImage++;
-
-if(currentImage>=projects[currentProject].length){
-currentImage=0;
-}
-
-document.getElementById("viewerImg").src=projects[currentProject][currentImage];
-
-}
-
-function prevImage(){
-
-currentImage--;
-
-if(currentImage<0){
-currentImage=projects[currentProject].length-1;
-}
-
-document.getElementById("viewerImg").src=projects[currentProject][currentImage];
-
-}
-
-function closeViewer(){
-
-document.getElementById("viewer").style.display="none";
-
-}
-
+function openProject(i){currentProject=i;currentImage=0;document.getElementById("viewer").style.display="flex";document.getElementById("viewerImg").src=projects[i][0];}
+function nextImage(){currentImage++;if(currentImage>=projects[currentProject].length) currentImage=0;document.getElementById("viewerImg").src=projects[currentProject][currentImage];}
+function prevImage(){currentImage--;if(currentImage<0) currentImage=projects[currentProject].length-1;document.getElementById("viewerImg").src=projects[currentProject][currentImage];}
+function closeViewer(){document.getElementById("viewer").style.display="none";}
 </script>
 
 </body>
 </html>
-```
